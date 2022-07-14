@@ -1,5 +1,5 @@
 <template>
-  <b-container>
+  <b-container class="containers">
     <div class="header">
       <span>
         <b-img
@@ -14,14 +14,17 @@
               <h4><strong>{{profileDetails.name}} </strong></h4>
               <h6>Bio</h6>
               <p>
+                {{profileDetails.bio}}
               </p>
             </b-col>
             <b-col class="personal-info">
-                   <p>Phone</p> 
-                   <p class="record">{{profileDetails.phone}}</p>
-                   <p>Email</p> 
-                   <p class="record">{{profileDetails.email}}</p>
-               </b-col>
+              <div id="detail">
+                <p>Phone</p> 
+                <p class="record">{{profileDetails.phone}}</p>
+                <p>Email</p> 
+                <p class="record">{{profileDetails.email}}</p>
+              </div>
+            </b-col>
           </b-row>
         </span>
       </span>
@@ -86,20 +89,26 @@ export default {
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
   margin-top: 70px !important;
+  margin-right:40px;
+  margin-left: 10px;
 }
 .rounded {
   border-radius: 9.25rem !important;
   margin-left: 40px;
+  margin-top: 40px;
   max-width: fit-content;
 }
 .album {
   margin-top: 20px;
+  margin-left: 90px;
+  margin-right: 125px;
 }
 .profile-info {
   display: flex;
   float: right;
   margin-top: 10px;
-  margin-left: 10px ;
+  margin-left: 10px;
+  border-right:500px;
 }
 .date {
   margin-left: 185px;
@@ -107,9 +116,16 @@ export default {
 }
 .personal-info{
   margin-left: 550px;
+  margin-right: 50px;
 }
 .record{
-  color:red
+  color:red;
 }
 .profile-Img{ width: 200px; height: 200px;}
+.containers{
+  margin-left:1500px;
+}
+#detail{
+  border:40px;
+}
 </style>
