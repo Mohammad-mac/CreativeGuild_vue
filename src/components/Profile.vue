@@ -3,7 +3,7 @@
     <div class="header">
       <span>
         <b-img
-          rounded
+          id = rounded
           :src="profileDetails.profile_picture"
           class="profile-Img"
           alt="Image 1"
@@ -20,9 +20,9 @@
             <b-col class="personal-info">
               <div id="detail">
                 <p>Phone</p> 
-                <p class="record">{{profileDetails.phone}}</p>
+                <p class="record1">{{profileDetails.phone}}</p>
                 <p>Email</p> 
-                <p class="record">{{profileDetails.email}}</p>
+                <p class="record2">{{profileDetails.email}}</p>
               </div>
             </b-col>
           </b-row>
@@ -38,14 +38,17 @@
             img-alt="Image"
             img-top
             tag="album"
-            style="max-width: 20rem"
+            style="max-width: 40rem"
             class="mb-4"
           >
             <b-card-text>
               {{data.description}}
             </b-card-text>
 
-            <p class="date">{{data.date}}</p>
+            <p class="date">{{data.date}} 
+              <span class="heart" v-if = 'data.featured' >&#x2764;&#xfe0f;</span>
+              <span class="heart" v-else >&#x1f90d;</span>
+            </p>
           </b-card>
         </b-col>
         
@@ -55,6 +58,7 @@
 </template>
 
 <script>
+
 import {getProfileDetails} from "../services/user.service"
 export default {
   name: "Profile",
@@ -75,6 +79,7 @@ export default {
     })
   }
 };
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -87,12 +92,13 @@ export default {
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
+  border-radius: 0.50rem;
   margin-top: 70px !important;
   margin-right:40px;
-  margin-left: 10px;
+  margin-left: -15px;
+  width: 94rem;
 }
-.rounded {
+#rounded {
   border-radius: 9.25rem !important;
   margin-left: 40px;
   margin-top: 40px;
@@ -100,8 +106,9 @@ export default {
 }
 .album {
   margin-top: 20px;
-  margin-left: 90px;
+  margin-left: 20px;
   margin-right: 125px;
+  width : 110%;
 }
 .profile-info {
   display: flex;
@@ -111,21 +118,36 @@ export default {
   border-right:500px;
 }
 .date {
-  margin-left: 185px;
+  margin-left: 300px;
+  display: inline;
+}
+.heart {
+  display: inline;
+  margin-right: 185px;
   margin-top: 10px;
 }
 .personal-info{
+  width: 50rem;
   margin-left: 550px;
   margin-right: 50px;
 }
-.record{
+.record1{
+  padding-top: 2px;
+  /* padding-bottom: 1px; */
+  color:red;
+}
+.record2{
+  /* padding-top: 2px; */
+  padding-bottom: 1px;
   color:red;
 }
 .profile-Img{ width: 200px; height: 200px;}
 .containers{
-  margin-left:1500px;
+  margin-left:1350px;
 }
 #detail{
   border:40px;
+  margin-left: 13rem;
+  margin-top: auto;
 }
 </style>
